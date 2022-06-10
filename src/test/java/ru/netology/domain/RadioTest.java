@@ -7,12 +7,39 @@ public class RadioTest {
     Radio radio = new Radio();
 
     @Test
-    void checkCurrentChanel() {
-        Radio radio = new Radio(2, 8);
+    void checkChanelRangeOne() {
+        Radio radio = new Radio(9);
 
-        Assertions.assertEquals(2, radio.getMinChanel());
+        Assertions.assertEquals(0, radio.getMinChanel());
+        Assertions.assertEquals(9, radio.getMaxChanel());
+        Assertions.assertEquals(0, radio.getCurrentChanel());
+    }
+
+    @Test
+    void checkChanelRangeTwo() {
+        Radio radio = new Radio(8);
+
+        Assertions.assertEquals(0, radio.getMinChanel());
         Assertions.assertEquals(8, radio.getMaxChanel());
-        Assertions.assertEquals(2, radio.getCurrentChanel());
+        Assertions.assertEquals(0, radio.getCurrentChanel());
+    }
+
+    @Test
+    void checkChanelRangeThree() {
+        Radio radio = new Radio(0);
+
+        Assertions.assertEquals(0, radio.getMinChanel());
+        Assertions.assertEquals(0, radio.getMaxChanel());
+        Assertions.assertEquals(0, radio.getCurrentChanel());
+    }
+
+    @Test
+    void checkChanelRangeFour() {
+        Radio radio = new Radio(2);
+
+        Assertions.assertEquals(0, radio.getMinChanel());
+        Assertions.assertEquals(2, radio.getMaxChanel());
+        Assertions.assertEquals(0, radio.getCurrentChanel());
     }
 
     @Test
