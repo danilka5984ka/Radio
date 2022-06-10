@@ -15,7 +15,7 @@ public class Radio {
         this.minChanel = minChanel;
         this.currentChanel = minChanel;
     }
-    
+
     public Radio() {
     }
 
