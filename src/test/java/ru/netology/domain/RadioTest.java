@@ -16,15 +16,6 @@ public class RadioTest {
     }
 
     @Test
-    void checkSwitchingChanel() {
-        Radio radio = new Radio(5);
-
-        Assertions.assertEquals(0, radio.getMinChanel());
-        Assertions.assertEquals(5, radio.getMaxChanel());
-        Assertions.assertEquals(0, radio.getCurrentChanel());
-    }
-
-    @Test
     void checkNewCurrentChanel() {
         radio.setCurrentChanel(9);
         radio.next();

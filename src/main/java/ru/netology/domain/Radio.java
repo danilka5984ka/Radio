@@ -15,12 +15,7 @@ public class Radio {
         this.minChanel = minChanel;
         this.currentChanel = minChanel;
     }
-
-    public Radio(int size) {
-        maxChanel = minChanel + size;
-
-    }
-
+    
     public Radio() {
     }
 
