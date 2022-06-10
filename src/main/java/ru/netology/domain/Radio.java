@@ -1,25 +1,35 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
 
-    private int currentChanel;
+    private int maxChanel = 9;
+    private int minChanel = 0;
+    private int currentChanel = minChanel;
+
     private int currentVolume;
 
-
-    public void setCurrentChanel(int currentChanel) {
-
-        if (currentChanel < 0) {
-            currentChanel = 9;
-        }
-        if (currentChanel > 9) {
-            currentChanel = 0;
-        }
-        this.currentChanel = currentChanel;
-
+    public Radio(int minChanel, int maxChanel) {
+        this.maxChanel = maxChanel;
+        this.minChanel = minChanel;
+        this.currentChanel = minChanel;
     }
     
-    public int getCurrentChanel() {
-        return currentChanel;
+    public void setCurrentChanel(int currentChanel) {
+
+        if (currentChanel < minChanel) {
+            currentChanel = maxChanel;
+        }
+        if (currentChanel > maxChanel) {
+            currentChanel = minChanel;
+        }
+        this.currentChanel = currentChanel;
     }
 
     public void setCurrentVolume(int currentVolume) {
@@ -27,20 +37,15 @@ public class Radio {
         if (currentVolume < 0) {
             currentVolume = 0;
         }
-        if (currentVolume > 10) {
-            currentVolume = 10;
+        if (currentVolume > 100) {
+            currentVolume = 100;
         }
         this.currentVolume = currentVolume;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     public void next() {
         int nextChanel = currentChanel + 1;
         setCurrentChanel(nextChanel);
-
     }
 
     public void prev() {
@@ -48,17 +53,23 @@ public class Radio {
         setCurrentChanel(prevChanel);
     }
 
-    public void up() {
-        int currentVolume = 10;
-        currentVolume = currentVolume + 1;
-        setCurrentVolume(currentVolume);
+    public void increaseVolume(int currentVolume) {
+        if (currentVolume < 100) {
+            currentVolume = currentVolume + 1;
+        } else {
+            currentVolume = 100;
+        }
+        this.currentVolume = currentVolume;
     }
 
+    public void decreaseVolume(int currentVolume) {
 
-    public void down() {
-        int currentVolume;
-        currentVolume = -1;
-        setCurrentVolume(currentVolume);
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
+        } else {
+            currentVolume = 0;
+        }
+        this.currentVolume = currentVolume;
     }
+
 }
-
