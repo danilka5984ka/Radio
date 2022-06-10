@@ -20,23 +20,7 @@ public class Radio {
         this.minChanel = minChanel;
         this.currentChanel = minChanel;
     }
-
-    public int getCurrentChanel() {
-        return currentChanel;
-    }
-
-    public int getMaxChanel() {
-        return maxChanel;
-    }
-
-    public int getMinChanel() {
-        return minChanel;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
+    
     public void setCurrentChanel(int currentChanel) {
 
         if (currentChanel < minChanel) {
